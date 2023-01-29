@@ -6,10 +6,13 @@ User = get_user_model
 class Event (models.Model):
     name = models.TextField()
     number_of_seats = models.PositiveIntegerField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='events')
+    description = models.TextField()
+    location = models.TextField()
+    datet_time = models.DateTimeField()
+    orgniser_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='events')
 
 
-class Seat (models.Model):
+class Booking(models.Model):
     seat_booking = models.PositiveIntegerField()
-    event_seat = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='seats')
-    user_seat = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seats')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='seats')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seats')
