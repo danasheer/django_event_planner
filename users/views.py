@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect
-from .forms import UserLogin
-from django.contrib.auth import login, authenticate
+from .forms import UserLogin, UserRegister
+from django.contrib.auth import login, authenticate 
 
 def user_login(request):
     form = UserLogin()
@@ -17,7 +17,7 @@ def user_login(request):
             if auth_user is not None:
                 login(request, auth_user)
                 # Where you want to go after a successful login
-                return redirect("successful-login")
+                return redirect("home_page")
 
     context = {
         "form": form,
@@ -27,6 +27,28 @@ def user_login(request):
 
 
 
+def user_register(request):
+    form = UserRegister()
+    if request.method == "POST":
+        form = UserRegister(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+
+            user.set_password(user.password)
+            user.save()
+
+            login(request, user)
+            # Where you want to go after a successful signup
+            return redirect("home_page")
+    context = {
+        "form": form,
+    }
+    return render(request, "register.html", context)
+
 def logout_view(request):
     logout(request)
-    return redirect("success-page")
+    return redirect("home_page")
+
+
+def get_home(request):
+    return render(request,'home.html')
