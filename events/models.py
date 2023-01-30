@@ -10,7 +10,11 @@ class Event (models.Model):
     location = models.TextField()
     datet_time = models.DateTimeField()
     orgniser_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='events')
+    image = models.ImageField(upload_to='events/')
+    booked_seats = models.PositiveIntegerField(default=0)
 
+    def __str__(self) -> str:
+        return self.name
 
 class Booking(models.Model):
     seat_booking = models.PositiveIntegerField()

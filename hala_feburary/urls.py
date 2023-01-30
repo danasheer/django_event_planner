@@ -15,11 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from users.views import get_home , user_login , user_register, logout_view
+from django.conf import settings
+from django.conf.urls.static import static
+
+from users.views import user_login , user_register, logout_view
+from events.views import info, event_detail, event_list
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', get_home , name= 'home_page'),
+    path ('', event_list, name='event_list'),
+    path ('<int:pk>/',event_detail, name='event_detail'),
+    path('info/' ,info, name='info'),
     path('login/' , user_login, name= 'login' ),
     path('register/',user_register, name= 'register'),
     path('logout/',logout_view, name= 'logout'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
