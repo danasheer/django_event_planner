@@ -1,10 +1,10 @@
 
-<form action="{% url 'login' %}" method="POST">
+<form action="{% url 'login' %}" method="post">
 
 
     {% csrf_token%}
     {{form}}
     
-    <button type="submit">login </button>
+    <button type="submit">login </button> 
 </form>
 
