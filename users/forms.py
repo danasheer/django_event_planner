@@ -16,3 +16,4 @@ class UserRegister(forms.ModelForm):
         widgets = {
             "password": forms.PasswordInput(),
         }
+

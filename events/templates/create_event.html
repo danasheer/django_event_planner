@@ -4,8 +4,9 @@
 
 {% load crispy_forms_tags %}
 {% block content %}
-<form action="{% url 'register'%}" method="post">
-    <h2>Register</h2>
+
+<form action="{% url 'create_event'%}" method="post">
+    <h2>create</h2>
 
     {% csrf_token%}
     {{form|crispy}}

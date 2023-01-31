@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from users.views import user_login , user_register, logout_view
-from events.views import info, event_detail, event_list
+from events.views import info, event_detail, event_list , create_event
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('login/' , user_login, name= 'login' ),
     path('register/',user_register, name= 'register'),
     path('logout/',logout_view, name= 'logout'),
+    path('create/', create_event, name= 'create_event')
 ]
 
 if settings.DEBUG:
