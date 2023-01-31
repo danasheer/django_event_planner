@@ -1,10 +1,37 @@
-  .name{
-    color: rgb(0, 170, 255)
-  }
-  .description{
-    font-size: 30px;
-    }
+.name {
 
-.location{
-  
+    inline-size: auto;
+    color: green;
+    text-align: center;
+}
+
+.description{
+    font-size: medium;
+    color:black;
+}
+
+.feb{
+
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    
+}
+.container-fluid {
+
+}
+.eventid {
+    
+}
+
+.deatil_image{
+
+    width: 500px;
+    width: 500px;
+}
+
+.info {
+
+    color: wheat;
+    text-align: start;
 }

@@ -16,7 +16,6 @@ def user_login(request):
             auth_user = authenticate(username=username, password=password)
             if auth_user is not None:
                 login(request, auth_user)
-                # Where you want to go after a successful login
                 return redirect("event_list")
 
     context = {

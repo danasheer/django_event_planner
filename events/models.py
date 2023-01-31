@@ -4,14 +4,16 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class Event (models.Model):
-    name = models.TextField()
-    number_of_seats = models.PositiveIntegerField()
+    name = models.CharField(max_length=100)
     description = models.TextField()
-    location = models.TextField()
-    datet_time = models.DateTimeField()
+    orgniser_name = models.CharField(max_length=100)
     orgniser_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='events')
-    image = models.ImageField(upload_to='events/')
+    location = models.TextField()
+    number_of_seats = models.PositiveIntegerField()
     booked_seats = models.PositiveIntegerField(default=0)
+    datet_time = models.DateTimeField()
+    image = models.ImageField(upload_to='events/')
+    
 
     def __str__(self) -> str:
         return self.name

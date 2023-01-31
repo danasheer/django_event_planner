@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
+    <img class="deatil_image" src="{{ event.image.url }}"alt="{{event.name}}">
     <h1 class="name">{{ event.name }}</h1>
     <h1 class="description"> {{event.description }}</h1>
-    <h1 class="location"> {{event.location }} </h1>
-    <h1>{{event.date_time }}</h1>
-    <p>Organiser: {{ event.organiser }}</p>
-    <p>Number of seats: {{ event.seats }}</p>
-    <p>Number of booked seats: {{ event.booked_seats }}</p>
-    <img src="{{ event.image.url }}" alt="{{ event.name }}" style="height: 400px; width: 400px;">
-    
+    <h4 class="location"> {{event.location }} </h4>
+    <h4>{{event.datet_time }}</h4>
+    <h4 class="organiser"> Organiser: {{ event.orgniser_name }}</h4>    
 {% endblock %}
