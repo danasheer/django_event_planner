@@ -23,7 +23,7 @@ from events.views import info, event_detail, event_list , create_event
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path ('events/', event_list, name='event_list'),
+    path ('', event_list, name='event_list'),
     path ('<int:pk>/',event_detail, name='event_detail'),
     path('info/' ,info, name='info'),
     path('login/' , user_login, name= 'login' ),

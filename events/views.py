@@ -19,8 +19,14 @@ def info(request):
 
 def create_event(request):
     form = CreateEventForm()
+    if request.method == "POST":
+        form = CreateEventForm(request.POST, request.FILES)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.orgniser_user = request.user
+            event.save()
+            return redirect("event_list")
     context = {
-
-        "form":form,
-     }
+          "form": form,
+    }
     return render(request, 'create_event.html',context)
