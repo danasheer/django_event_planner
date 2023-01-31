@@ -3,10 +3,13 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
-    <img class="deatil_image" src="{{ event.image.url }}"alt="{{event.name}}">
-    <h1 class="name">{{ event.name }}</h1>
-    <h1 class="description"> {{event.description }}</h1>
-    <h4 class="location"> {{event.location }} </h4>
-    <h4>{{event.datet_time }}</h4>
-    <h4 class="organiser"> Organiser: {{ event.orgniser_name }}</h4>    
+    <img class="deatil_image" src="{{ event.image.url }}"alt="{{event.name}}" style="display: flex; justify-content: center; align-items: center; margin-left: 30%; margin-top: 90px;">
+    <h1 class="name" style="font-weight: bolder; color:white">{{ event.name }}</h1>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+        <h1 class="description"  style="color: white;"> {{event.description }}</h1>
+        <h4 class="location" style="color: white;"> {{event.location }} </h4>
+        <h4 style="color: white;">{{event.datet_time }}</h4>
+        <h4 class="organiser" style="color: white;"> Organiser: {{ event.orgniser_name }}</h4>    
+    </div>
 {% endblock %}
